@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    var words = ['javascript', 'monkey','amazing', 'pancake', 'kelli', 'alex', 'apartment'];
+    var tempArray = [];
+
+    var pickWord = function() {
+        var word = words[Math.floor(Math.random() * words.length)]
+        return word;
+      };
+
+    var setupAnswerArray = function() {
+      for(var i = 0; i < word.length; i++){
+        tempArray[i] = '_';
+        }
+        return tempArray;
+      };
+
+      var showPlayerProgress = function(answerArray) {
+        alert(answerArray.join(' ') + '\nRemaining letters: ' + remainingLetters);
+      };
+
+      var getGuess = function () {
+        var guess = prompt('Guess a letter, or click Cancel to stop playing.');
+        return guess;
+        };
+
+      var updateGameState = function(guess, word, answerArray) {
+        var match = 0;
+        for(var j = 0; j < word.length; j++){
+          if (word[j] === guess.toLowerCase() && answerArray[j] === '_') {
+            answerArray[j] = guess.toLowerCase();
+            match++
+          }
+        }
+        return match;
+      };
+
+      var showAnswerAndCongratulatePlayer = function(answerArray) {
+        alert('Good job! The answer is ' + word);
+      };
+
+      var word = pickWord();
+      var answerArray = setupAnswerArray(word);
+      var remainingLetters = word.length;
+
+      while (remainingLetters > 0) {
+           showPlayerProgress(answerArray);
+           var guess = getGuess();
+           if (guess === null) {
+             break;
+           } else if (guess.length !== 1) {
+             alert("Please enter a single letter.");
+           } else {
+             var correctGuesses = updateGameState(guess, word, answerArray);
+             remainingLetters -= correctGuesses;
+           }
+         }
+         if(remainingLetters === 0){
+         alert(showAnswerAndCongratulatePlayer());
+         } else {
+           alert ('Goodbye!')
+         };
+    </script>
+  </body>
+</html>
