@@ -1,0 +1,23 @@
+body{
+  text-align: center;
+  background-color: #043a80;
+  background-image: url("sun.png");
+  background-position: center;
+}
+h1{
+  font-size: 60px;
+  text-align: center;
+  position: center;
+  background-color: #043a80;
+  font-family: sans-serif;
+  color: #892013;
+}
+ol{
+  display: inline-block;
+  text-align: left;
+  font-size: 40px;
+  position: center;
+  font-family: sans-serif;
+  color: #c61118;
+  color: white;
+}
